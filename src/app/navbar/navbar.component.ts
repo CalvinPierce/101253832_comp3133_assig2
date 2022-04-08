@@ -10,7 +10,7 @@ export class NavbarComponent implements OnInit {
   loggedIn: any;
 
   constructor() { 
-    this.admin = localStorage.getItem('type') == 'admin';
+    this.admin = localStorage.getItem('type') === 'admin'
     this.loggedIn = localStorage.getItem('token') ? true : false;
   }
 

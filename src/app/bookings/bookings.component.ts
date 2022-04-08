@@ -11,6 +11,7 @@ export class BookingsComponent implements OnInit {
 
   bookings: any;
   type: any = null;
+  username: any = null;
 
   constructor(private router: Router, private db: DatabaseService) {
     this.type = localStorage.getItem('type');
@@ -18,6 +19,7 @@ export class BookingsComponent implements OnInit {
       alert('Not Allowed! Must Login To Have Access To This Page!');
       this.router.navigate(['/']);
     }
+    this.username = localStorage.getItem('username');
    }
 
   ngOnInit(): void {

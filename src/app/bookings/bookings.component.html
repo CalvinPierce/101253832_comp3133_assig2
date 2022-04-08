@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
-<h1>Bookings</h1>
+<div fxLayoutAlign="center center" fxLayout="column">
+<h1>{{username}}'s Bookings</h1>
 <div *ngFor="let booking of bookings">
     <mat-card class="example-card">
         <mat-card-header>
@@ -13,5 +14,6 @@
             <p>Username: {{booking.username}}</p>
         </mat-card-content>
     </mat-card>
-
+<br>
+</div>
 </div>

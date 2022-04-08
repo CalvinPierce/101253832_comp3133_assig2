@@ -15,12 +15,16 @@ export class SearchComponent implements OnInit {
   numOfListings: number = 0;
   showDiv: boolean = false;
   loggedIn: boolean = false;
+  term: any = null;
+  
+  searchForm: any;
 
-  searchForm = new FormGroup({
+  constructor(private router: Router, private db: DatabaseService) {
+    
+  this.searchForm = new FormGroup({
     term: new FormControl("", Validators.required),
   })
-
-  constructor(private router: Router, private db: DatabaseService) { }
+   }
 
   ngOnInit(): void {
     if(localStorage.getItem('username') !== null){
@@ -33,9 +37,8 @@ export class SearchComponent implements OnInit {
       this.db.getListingsBySearch(this.searchForm.value.term).subscribe((res: any) => {
         this.listings = res.data.getListingsBySearch;
         this.numOfListings = res.data.getListingsBySearch.length;
-        if(this.numOfListings === 0){
-          this.showDiv = true;
-        }
+        this.showDiv = true;
+        this.term = this.searchForm.value.term
       });
     }
   }

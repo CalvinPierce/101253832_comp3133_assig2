@@ -31,7 +31,10 @@ export class LoginComponent implements OnInit {
         } else { // successful
           localStorage.setItem('username', this.loginForm.value.username)
           localStorage.setItem('token', res.data?.login)
-          this.router.navigate(['/'])
+          this.router.navigate(['/'])  
+          .then(() => { //Refresh the page upon load to update the type.
+            window.location.reload();
+          });
         } 
       });
     }

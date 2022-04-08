@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+<div fxLayoutAlign="center center" fxLayout="column">
 <h1>Listings</h1>
 <div *ngFor="let listing of listings">
     <mat-card class="example-card">
@@ -15,10 +16,11 @@
             <p>Email: {{listing.email}}</p>
             <p>Username: {{listing.username}}</p>
         </mat-card-content>
-        <mat-card-actions>
+        <mat-card-actions fxLayoutAlign="center center" fxLayout="column">
             <button *ngIf="loggedIn" mat-raised-button color="primary" routerLink="/booklisting/{{listing.listing_id}}">Book</button>
             <button *ngIf="!loggedIn" mat-raised-button color="primary" routerLink="/login">Log In To Book</button>
         </mat-card-actions>
     </mat-card>
-
+<br/>
+</div>
 </div>

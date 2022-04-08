@@ -1,0 +1,13 @@
+<div fxShow="true" fxHide.lt-md fxFlex fxLayout>
+<mat-toolbar color="primary">
+    <a mat-button routerLink="/">Home</a>
+    <a mat-button routerLink="/search">Search Listings</a>
+    <a *ngIf="admin" mat-button routerLink="/createlisting">Create Listings</a>
+    <a *ngIf="loggedIn" mat-button routerLink="/bookings">View Your Bookings</a>
+    <div fxFlex fxLayoutAlign="flex-end center">
+    <a *ngIf="loggedIn" mat-button routerLink="/logout">Logout</a>
+    <a *ngIf="!loggedIn" mat-button routerLink="/login">Log In</a>
+    <a *ngIf="!loggedIn" mat-button routerLink="/signup">Sign Up</a>
+    </div>
+</mat-toolbar>
+</div>

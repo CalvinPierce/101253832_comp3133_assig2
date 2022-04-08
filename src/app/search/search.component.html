@@ -1,0 +1,35 @@
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <div>
+        <h1>Search Listings</h1>
+        <h2>Search by name, city or postal code</h2>
+        <mat-form-field appearance="fill">
+            <mat-label>Search</mat-label>
+            <input matInput formControlName="term" type="search">
+          </mat-form-field><br/>
+          <button mat-raised-button color="primary" type="submit">Search</button> <br/><br/>
+    </div>
+</form>
+
+<div *ngIf="numOfListings === 0 && showDiv">No Listings Found</div>
+
+<div *ngFor="let listing of listings">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>{{listing.listing_title}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>Listing ID: {{listing.listing_id}}</p>
+            <p>Description: {{listing.description}}</p>
+            <p>Street: {{listing.street}}</p>
+            <p>City: {{listing.city}}</p>
+            <p>Postal Code: {{listing.postal_code}}</p>
+            <p>Price: {{listing.price}}</p>
+            <p>Email: {{listing.email}}</p>
+            <p>Username: {{listing.username}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button *ngIf="loggedIn" mat-raised-button color="primary" routerLink="/booklisting/{{listing.id}}">Book</button>
+            <button *ngIf="!loggedIn" mat-raised-button color="primary" routerLink="/login">Log In To Book</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

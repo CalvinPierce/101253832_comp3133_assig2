@@ -1,7 +1,8 @@
 <app-navbar></app-navbar>
+<div fxLayoutAlign="center center" fxLayout="column">
+<h1>Booking Listing {{listingId}}</h1>
 <form [formGroup]="bookListingForm" (ngSubmit)="onSubmit()">
-    <div>
-        <h1>Booking Listing {{listingId}}</h1>
+    <mat-card class="example-card">
           <mat-form-field appearance="fill">
             <mat-label>Booking ID</mat-label>
             <input matInput formControlName="booking_id">
@@ -14,6 +15,9 @@
             <mat-label>Booking End Date</mat-label>
             <input matInput formControlName="booking_end" type="date">
           </mat-form-field><br/>
-          <button mat-raised-button color="primary" type="submit">Create Booking</button>
-    </div>
+          <mat-card-actions fxLayoutAlign="center center" fxLayout="column">
+            <button mat-raised-button color="primary" type="submit">Create Booking</button>
+          </mat-card-actions>
+    </mat-card>
 </form>
+</div>
